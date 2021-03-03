@@ -1,0 +1,13 @@
+.homepage-section, .progress-section{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.progress-section{
+    background-color: grey
+}
+
+h2{
+    text-align: center;
+}

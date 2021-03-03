@@ -1,0 +1,36 @@
+*{
+    text-align: center;
+}
+
+h2{
+    margin-top: 0;
+}
+
+.goal{
+    background-color: gray;
+    padding-top: 20px;
+}
+
+.run-data{
+    padding-top: 20px;
+}
+.distance, .time{
+    text-align: center;
+}
+
+.notes{
+    height: 120px;
+    vertical-align: text-top;
+}
+
+input{
+    margin-bottom: 20px;
+}
+
+.time{
+    width: 20px;
+}
+
+.pace{
+    width: 20px;
+}
