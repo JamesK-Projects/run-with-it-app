@@ -1,0 +1,22 @@
+.labels{
+    border-style: solid;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    display: flex;
+    justify-content:space-evenly;
+}
+
+.label{
+    width: 100%;
+}
+
+.row{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.item{
+    width: 100%;
+}

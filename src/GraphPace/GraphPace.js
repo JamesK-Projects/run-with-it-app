@@ -2,40 +2,71 @@ import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
 
 class GraphPace extends Component {
-    calculatePace = () => {
+    getDates = () => {
+        let runDates = []
+        this.props.runData.map(run => {
+            if(run.user_id === 1){
+                runDates.push(run.date)
+            }
+        })
+        return runDates;
+    }
+
+    calculatePaceStr = () => {
         let usersTime = []
         let usersDistance = []
         let usersPace = []
         let arrCounter = 0;
+        this.props.runData.map(run => {
+            if(run.user_id === 1){
+                usersTime.push(run.time)
+                usersDistance.push(run.distance)
+            }
+            while(arrCounter < usersTime.length){
+                var date = new Date(0);
+                date.setSeconds(usersTime[arrCounter]/usersDistance[arrCounter]);
+                var timeString = date.toISOString().substr(14, 5);
+                usersPace.push(timeString)
+                arrCounter ++
+            }
+        })
+
+        return usersPace;
+    }
+
+    calculatePace = () => {
+        let usersTime = []
+        let usersDistance = []
+        let arrCounter = 0;
+        let time = [];
         
         this.props.runData.map(run => {
             if(run.user_id === 1){
                 usersTime.push(run.time)
                 usersDistance.push(run.distance)
             }
+            while(arrCounter < usersTime.length){
+                time.push((usersTime[arrCounter]/60)/usersDistance[arrCounter])
+                arrCounter ++
+            }
         })
-        console.log(usersTime, usersDistance)
-        while(arrCounter < usersTime.length){
-            usersPace.push(
-                `${Math.floor(usersTime[arrCounter]/60)}:${Math.round(usersTime[arrCounter]%60)}`
-            )
-            arrCounter ++
-        }
-        console.log(usersPace)
-
+        
+        return time;
+        
     }
     
     render() { 
-        this.calculatePace()
         return (
             <div className="graph-pace">
+                <h2 className="graph-title">Graph of Average Pace</h2>
                 <Line 
                     responsive= {true}
                     data={{
-                        labels:['03/03/2021', '03/05/2021', '03/08/2021'],
+                        labels: this.getDates(),
                         datasets: [{
-                            label: 'Distance (miles)',
-                            data: [3, 2, 4.5],
+                            label: 'Pace per mile',
+                            data: this.calculatePace(),
+                            dataStr: this.calculatePaceStr(),
                             backgroundColor: ['rgba(54, 162, 235, 0.2)'],
                             borderColor: ['rgba(54, 162, 235, 1)']
                         }]
@@ -55,13 +86,21 @@ class GraphPace extends Component {
                         },
                         layout: {
                             padding: {
-                                left: 10,
-                                right: 10,
+                                left: 100,
+                                right: 100,
                                 top: 0,
-                                bottom: 0
+                                bottom: 20
                             },
-
-
+                        },
+                        tooltips: {
+                            callbacks: {
+                                title: function(tooltipItem, data) {
+                                  return data['labels'][tooltipItem[0]['index']];
+                                },
+                                label: function(tooltipItem, data) {
+                                  return data['datasets'][0]['dataStr'][tooltipItem['index']];
+                                }
+                              },
                         }
                     }}
                 />

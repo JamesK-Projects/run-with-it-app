@@ -4,11 +4,11 @@ class LoginForm extends Component {
     render() { 
         return (
             <div className="login-form">
-                <form class="login-form">
+                <form className="login-form">
                     <h2>Log into an existing account</h2>
-                    <labelfor id="login-email">Email</labelfor>
+                    <label id="login-email">Email</label>
                     <input type="text" id="login-email" /><br/>
-                    <labelfor id="login-password">Password</labelfor>
+                    <label id="login-password">Password</label>
                     <input type="password" id="login-password" /><br/>
                     <button>Log In</button>
                 </form>

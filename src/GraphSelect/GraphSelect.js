@@ -4,7 +4,8 @@ class GraphSelect extends Component {
     render() { 
         return (
             <div className="graph-select">
-                <h2>graph select</h2>
+                <span className="distance">Distance</span>
+                <span className="pace">Pace</span>
             </div>
         );
     }

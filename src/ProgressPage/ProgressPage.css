@@ -2,3 +2,29 @@ canvas{
     margin: 0 auto;
 } 
 
+.graph-select{
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.selector{
+    border-style: solid;
+    border-width: 1px;
+    padding: 1px;
+    margin: 5px;
+}
+
+.selector:hover{
+    cursor: pointer;
+}
+
+.true{
+    background-color: grey;
+}
+
+.graph-title{
+    margin: 40px;
+}
+
+
+

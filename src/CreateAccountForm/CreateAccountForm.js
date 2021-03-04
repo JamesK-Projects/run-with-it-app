@@ -4,13 +4,13 @@ class CreateAccountForm extends Component {
     render() { 
         return (
             <div className="create-account">
-                <form class="create-account-form">
+                <form className="create-account-form">
                 <h2>Create a new account</h2>
-                <labelfor id="create-account-name">Name</labelfor>
+                <label id="create-account-name">Name</label>
                 <input type="text" id="create-account-name" /><br/>
-                <labelfor id="create-account-email">Email</labelfor>
+                <label id="create-account-email">Email</label>
                 <input type="text" id="create-account-email" /><br/>
-                <labelfor id="create-account-password">Password</labelfor>
+                <label id="create-account-password">Password</label>
                 <input type="password" id="create-account-password" /><br/>
                 <button>Create Account</button>
             </form>

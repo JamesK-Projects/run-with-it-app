@@ -1,47 +1,69 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
 
-const GraphDistance = () => {
-    return (
-        <div className="graph-distance">
-            <Line 
-                responsive= {true}
-                data={{
-                    labels:['03/03/2021', '03/05/2021', '03/08/2021'],
-                    datasets: [{
-                        label: 'Distance (miles)',
-                        data: [3, 2, 4.5],
-                        backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-                        borderColor: ['rgba(54, 162, 235, 1)']
-                    }]
-                }}
-                height={700}
-                width={1400}
+class GraphDistance extends Component {
+    getDates = () => {
+        let runDates = []
+        this.props.runData.map(run => {
+            if(run.user_id === 1){
+                runDates.push(run.date)
+            }
+        })
+        return runDates;
+    }
 
-                options = {{
-                    scales: {
-                        yAxes: [
-                            {
-                                ticks: {
-                                    beginAtZero: true,
+    getDistances = () => {
+        let runDistances = []
+        this.props.runData.map(run => {
+            if(run.user_id === 1){
+                runDistances.push(run.distance)
+            }
+        })
+        return runDistances;
+    }
+    render(){
+        return (
+            <div className="graph-distance">
+                <h2 className="graph-title">Graph of Distance</h2>
+                <Line 
+                    responsive= {true}
+                    data={{
+                        labels: this.getDates(),
+                        datasets: [{
+                            label: 'Distance (miles)',
+                            data: this.getDistances(),
+                            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+                            borderColor: ['rgba(54, 162, 235, 1)']
+                        }]
+                    }}
+                    height={700}
+                    width={1400}
+
+                    options = {{
+                        scales: {
+                            yAxes: [
+                                {
+                                    ticks: {
+                                        beginAtZero: true,
+                                    },
                                 },
-                            },
-                        ],
-                    },
-                    layout: {
-                        padding: {
-                            left: 10,
-                            right: 10,
-                            top: 0,
-                            bottom: 0
+                            ],
                         },
+                        layout: {
+                            padding: {
+                                left: 100,
+                                right: 100,
+                                top: 0,
+                                bottom: 20
+                            },
 
 
-                    }
-                }}
-            />
-        </div>
-    );
+                        }
+                    }}
+                />
+            </div>
+        );
+    }
 }
         
  

@@ -6,8 +6,6 @@ const dummyUsers = [
         password: "dummypassword",
         goal_distance: 10,
         goal_pace: 570,
-        best_distance: 5,
-        best_pace: 720
     },
     {
         id: 2,
@@ -16,8 +14,6 @@ const dummyUsers = [
         password: "dummypassword",
         goal_distance: 6,
         goal_pace: 600,
-        best_distance: 3.5,
-        best_pace: 700
     },
     {
         id: 3,
@@ -26,8 +22,6 @@ const dummyUsers = [
         password: "dummypassword",
         goal_distance: 4,
         goal_pace: 700,
-        best_distance: 2.2,
-        best_pace: 900
     }
 ]
 
@@ -79,6 +73,30 @@ const dummyRuns = [
         date: '03/05/2021',
         time: 1400,
         note: 'Great run!'
+    },
+    {
+        id: 7,
+        user_id: 1,
+        distance: 4,
+        date: '03/06/2021',
+        time: 2400,
+        note: 'Great run, felt fast'
+    },
+    {
+        id: 8,
+        user_id: 1,
+        distance: 4.2,
+        date: '03/07/2021',
+        time: 2350,
+        note: 'Great run, felt fast'
+    },
+    {
+        id: 9,
+        user_id: 1,
+        distance: 5.5,
+        date: '03/09/2021',
+        time: 3000,
+        note: 'Great run, felt fast'
     },
 ]
 
