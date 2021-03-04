@@ -67,8 +67,8 @@ class GraphPace extends Component {
                             label: 'Pace per mile',
                             data: this.calculatePace(),
                             dataStr: this.calculatePaceStr(),
-                            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-                            borderColor: ['rgba(54, 162, 235, 1)']
+                            backgroundColor: ['rgba(40, 236, 33, 0.3)'],
+                            borderColor: ['rgba(40, 236, 33, 0.8)']
                         }]
                     }}
                     height={700}

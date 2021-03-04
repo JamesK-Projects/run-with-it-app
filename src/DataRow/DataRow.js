@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class DataRow extends Component {
+
     calculatePace = () => {
         let time = this.props.run.time
         let distance = this.props.run.distance

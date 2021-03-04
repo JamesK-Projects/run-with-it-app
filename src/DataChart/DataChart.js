@@ -3,6 +3,22 @@ import DataRow from '../DataRow/DataRow';
 import DummyData from '../dummyData';
 
 class DataChart extends Component {
+    // state = {
+    //     counter: 0
+    // }
+
+    // alternateRow = () => {
+    //     this.setState({
+    //         counter: this.state.counter ++
+    //     })
+
+    //     console.log(this.state.counter)
+
+    //     if(this.state.counter % 2 === 0){
+    //         return 'grey'
+    //     }
+    // }
+
     render() { 
         return (
             <div className="data-chart">
@@ -16,7 +32,11 @@ class DataChart extends Component {
                 </div>
                 {DummyData.dummyRuns.map(run => {
                     if(run.user_id === 1){
-                        return <DataRow run={run} key={run.id}/>
+                        return (
+                            // <div className={this.alternateRow()}>
+                                <DataRow run={run} key={run.id}/>
+                            // </div>
+                        )
                     }
                 })}
                 
