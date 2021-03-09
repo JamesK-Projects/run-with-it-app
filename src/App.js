@@ -23,14 +23,18 @@ class App extends Component {
 		this.setState({
 			users,
 			error: null
-		})
+		},
+		() => {}
+		)
 	}
 
 	setRuns = runs => {
 		this.setState({
 			runs,
 			error: null
-		})
+		}, 
+		() => {}
+		)
 	}
 
 	getUsers = () => {

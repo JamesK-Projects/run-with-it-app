@@ -45,6 +45,22 @@ class ProgressPage extends Component {
         }
     }
 
+    // showPRs = () => {
+    //     console.log('ran')
+    //     let showPRs = false;
+    //     console.log(showPRs)
+    //     this.context.runs.map(run => {
+    //         if(run.user_id == this.props.match.params.userId){
+    //             showPRs = true;
+    //         }
+    //     })
+    //     console.log(showPRs)
+    //     if(showPRs = true){
+    //         return <PRs runData={this.context.runs} {...this.props}/>
+    //     }
+    //     else return;
+    // }
+
     highlightSelectorD = () => {
         if(this.state.selectDistance === true){
             return "selector true"

@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 
 class PRs extends Component {
+    state = {
+        classNamePRs: 'hidden'
+    }
     setDistancePR = () => {
         let distances = []
         let bestD = 0;
         this.props.runData.map(run => {
-            if(run.user_id == 1){
+            if(run.user_id == this.props.match.params.userId){
                 distances.push(run.distance)
+                // this.setState({classNamePRs: 'prs'})
             }
         })
         for(let i = 0; i < distances.length; i++){
@@ -25,7 +29,7 @@ class PRs extends Component {
         let bestPace = 10000;
         let bestPaceStr = ''
         this.props.runData.map(run => {
-            if(run.user_id === 1){
+            if(run.user_id == this.props.match.params.userId){
                 distance.push(run.distance)
                 time.push(run.time)
             }
@@ -43,14 +47,26 @@ class PRs extends Component {
         var date = new Date(0);
         date.setSeconds(bestPace);
         bestPaceStr = date.toISOString().substr(14, 5);
-        
         return bestPaceStr;
+    }
 
+    showPRs = () => {
+        this.props.runData.map(run => {
+            if(run.user_id == this.props.match.params.userId){
+                this.setState({
+                    classNamePRs: 'prs'
+                })
+            }
+        })
+    }
+
+    componentDidMount(){
+        this.showPRs()
     }
 
     render() { 
         return (
-            <div className="prs">
+            <div className={this.state.classNamePRs}>
                 <h2>Best Distance: {this.setDistancePR()} miles</h2>
                 <h2>Fastest Pace: {this.setPacePR()} per mile</h2>
             </div>

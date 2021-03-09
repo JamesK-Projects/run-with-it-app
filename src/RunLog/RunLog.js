@@ -7,13 +7,13 @@ class RunLog extends Component {
 
     state = {
         user_id: this.props.match.params.userId,
-        distance: 0,
+        distance: '',
         date: '',
-        time: 0,
+        time: '',
         note: '',
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
+        hours: '',
+        minutes: '',
+        seconds: '',
         validateFieldsClass: 'hidden',
         error: ''
     }
@@ -80,16 +80,43 @@ class RunLog extends Component {
             })
         }
         else {
-            this.context.addRun(this.state.user_id, this.state.distance, this.state.date, this.state.time, this.state.note);
-            this.setState({
-                distance: 0,
-                date: '',
-                time: 0,
-                note: ''
+            const run = {
+                user_id: this.state.user_id,
+                distance: this.state.distance,
+                date: this.state.date,
+                time: this.state.time,
+                note: this.state.note
+            }
+            fetch(config.API_ENDPOINT + 'api/runs', {
+                method: 'POST',
+                body: JSON.stringify(run),
+                headers: {
+                    'content-type': 'application/json'
+                }
             })
+            .then(res => {
+                if(!res.ok){
+                    throw new Error(res.status)
+                }
+                return res.json()
+            })
+            .then(data => {
+                this.context.getRuns()
+            })
+            .then(() => {
+                this.setState({
+                    distance: '',
+                    date: '',
+                    time: '',
+                    note: '',
+                    hours: '',
+                    minutes: '',
+                    seconds: '',
+                })
+            })
+            .catch(error => this.setState({error}))
         }
     }
-
 
     render() { 
         return (
@@ -97,15 +124,15 @@ class RunLog extends Component {
                 <h2>Log your run</h2>
                 <form className="run-log" onSubmit={e => this.handleSubmit(e)}>
                     <label id="date">* Today's Date</label><br/>
-                    <input type="date" id="date" className="date" onChange={e => this.handleDateInput(e)}/><br/>
+                    <input type="date" id="date" className="date" value={this.state.date} onChange={e => this.handleDateInput(e)}/><br/>
                     <label id="distance">* How far did you run?</label><br/>
-                    <input type="text" id="distance" className="distance" placeholder="Distance (Miles)" onChange={e => this.handleDistanceInput(e)}/><br/>
+                    <input type="text" id="distance" className="distance" placeholder="Distance (Miles)" value={this.state.distance} onChange={e => this.handleDistanceInput(e)}/><br/>
                     <label id="time">* How long did you run for?</label><br/>
-                    <input type="text" id="hours" className="time" placeholder="H" onChange={e => this.handleHoursInput(e)}/> :
-                    <input type="text" id="minutes" className="time" placeholder="M" onChange={e => this.handleMinutesInput(e)}/> :
-                    <input type="text" id="seconds" className="time" placeholder="S" onChange={e => this.handleSecondsInput(e)}/><br/>
+                    <input type="text" id="hours" className="time" placeholder="H" value={this.state.hours} onChange={e => this.handleHoursInput(e)}/> :
+                    <input type="text" id="minutes" className="time" placeholder="M" value={this.state.minutes} onChange={e => this.handleMinutesInput(e)}/> :
+                    <input type="text" id="seconds" className="time" placeholder="S" value={this.state.seconds} onChange={e => this.handleSecondsInput(e)}/><br/>
                     <label id="notes">Anything to note?</label><br/>
-                    <input type="text" id="notes" className="notes" onChange={e => this.handleNoteInput(e)}/><br/>
+                    <input type="text" id="notes" className="notes" value={this.state.note} onChange={e => this.handleNoteInput(e)}/><br/>
                     <button type="submit">Submit</button>
                     <p className={this.state.validateFieldsClass}>Please fill out all required fields</p>
                     <p>* (Required field)</p>
