@@ -8,9 +8,9 @@ class HomePage extends Component {
     render() { 
         return (
             <div className="home-page">
-                <Nav />
+                <Nav {...this.props}/>
                 <Goal />
-                <RunLog />
+                <RunLog {...this.props}/>
             </div>
         );
     }

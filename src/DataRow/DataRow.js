@@ -9,8 +9,6 @@ class DataRow extends Component {
         var date = new Date(0);
         date.setSeconds(time/distance);
         pace = date.toISOString().substr(14, 5);
-
-        console.log(pace)
         return pace
     }
 
@@ -35,7 +33,7 @@ class DataRow extends Component {
                 <div className="row">
                     <div className="item">
                         <p>
-                            {this.props.run.date}
+                            {this.props.run.date.substr(4,11)}
                         </p>
                     </div>
                     <div className="item">

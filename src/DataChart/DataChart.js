@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import DataRow from '../DataRow/DataRow';
-import DummyData from '../dummyData';
+import runWithItContext from '../runwithitContext';
 
 class DataChart extends Component {
+    static contextType = runWithItContext;
     // state = {
     //     counter: 0
     // }
@@ -30,8 +31,8 @@ class DataChart extends Component {
                     <div className="label"><h4>Time</h4></div>
                     <div className="label"><h4>Notes</h4></div>
                 </div>
-                {DummyData.dummyRuns.map(run => {
-                    if(run.user_id === 1){
+                {this.context.runs.map(run => {
+                    if(run.user_id == this.props.match.params.userId){
                         return (
                             // <div className={this.alternateRow()}>
                                 <DataRow run={run} key={run.id}/>

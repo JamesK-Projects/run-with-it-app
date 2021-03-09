@@ -5,8 +5,8 @@ class GraphDistance extends Component {
     getDates = () => {
         let runDates = []
         this.props.runData.map(run => {
-            if(run.user_id === 1){
-                runDates.push(run.date)
+            if(run.user_id == this.props.match.params.userId){
+                runDates.push(run.date.substr(4, 11))
             }
         })
         return runDates;
@@ -15,7 +15,7 @@ class GraphDistance extends Component {
     getDistances = () => {
         let runDistances = []
         this.props.runData.map(run => {
-            if(run.user_id === 1){
+            if(run.user_id == this.props.match.params.userId){
                 runDistances.push(run.distance)
             }
         })

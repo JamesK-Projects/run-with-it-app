@@ -6,3 +6,15 @@ input{
     margin-bottom: 10px;
     margin-left: 5px;
 }
+
+.login-validation-hidden, .hidden{
+    display: none
+}
+
+.login-validation-shown, .shown{
+    color: red;
+}
+
+.shown-success{
+    color: green;
+}

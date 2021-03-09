@@ -9,8 +9,8 @@ class LoginPage extends Component {
         return (
             <div className="login-page">
                 <Nav />
-                <LoginForm />
-                <CreateAccountForm />
+                <LoginForm {...this.props}/>
+                <CreateAccountForm {...this.props}/>
             </div>
         );
     }

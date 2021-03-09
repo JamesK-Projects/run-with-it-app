@@ -7,8 +7,8 @@ class DataPage extends Component {
     render() { 
         return (
             <div className="data-page">
-                <Nav />
-                <DataChart />
+                <Nav {...this.props}/>
+                <DataChart {...this.props}/>
             </div>
         );
     }

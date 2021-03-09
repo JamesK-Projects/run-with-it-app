@@ -1,29 +1,20 @@
 import React, { Component } from 'react';
 
 class PRs extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            bestD: 0,
-        }
-    }
-
     setDistancePR = () => {
         let distances = []
+        let bestD = 0;
         this.props.runData.map(run => {
-            if(run.user_id === 1){
+            if(run.user_id == 1){
                 distances.push(run.distance)
             }
         })
         for(let i = 0; i < distances.length; i++){
-            if(distances[i] > this.state.bestD){
-                this.setState({
-                    bestD: distances[i]
-                })
+            if(distances[i] > bestD){
+                bestD = distances[i]
             }
         }
-        
-        return this.state.bestD;
+        return bestD;
     }
 
     setPacePR = () => {

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import runWithItContext from '../runwithitContext';
 
 class Goal extends Component {
+    static contextType = runWithItContext;
     render() { 
         return (
             <div className="goal">

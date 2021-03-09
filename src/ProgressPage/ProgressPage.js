@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import Nav from '../Nav/Nav';
 import GraphDistance from '../GraphDistance/GraphDistance';
 import GraphPace from '../GraphPace/GraphPace';
-//import GraphSelect from '../GraphSelect/GraphSelect';
 import PRs from '../PRs/PRs';
 import './ProgressPage.css';
 import DummyData from '../dummyData';
+import runwithitContext from '../runwithitContext'
 
 class ProgressPage extends Component {
+    static contextType = runwithitContext;
+
     constructor(props){
         super(props);
         this.state = {
@@ -33,12 +35,12 @@ class ProgressPage extends Component {
     showGraph = () => {
         if(this.state.selectDistance === true){
             return (
-                <GraphDistance runData={DummyData.dummyRuns}/>
+                <GraphDistance runData={this.context.runs} {...this.props}/>
             )
         }
         else {
             return(
-                <GraphPace runData={DummyData.dummyRuns}/>
+                <GraphPace runData={this.context.runs} {...this.props}/>
             )
         }
     }
@@ -64,13 +66,13 @@ class ProgressPage extends Component {
     render() { 
         return (
             <div className="progress-page">
-                <Nav />
+                <Nav {...this.props}/>
                 {this.showGraph()}
                 <div className="graph-select">
                     <span className={this.highlightSelectorD()} onClick={this.selectGraphD}>Distance</span>
                     <span className={this.highlightSelectorP()} onClick={this.selectGraphP}>Pace</span>
                 </div>
-                <PRs runData={DummyData.dummyRuns}/>
+                <PRs runData={this.context.runs} {...this.props}/>
             </div>
         );
     }
