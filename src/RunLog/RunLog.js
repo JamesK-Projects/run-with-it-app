@@ -20,7 +20,7 @@ class RunLog extends Component {
 
     convertTime = () => {
         const totalTimeInSeconds = (this.state.hours * 3600) + (this.state.minutes * 60) + (this.state.seconds * 1)
-        //console.log(totalTimeInSeconds)
+        console.log(totalTimeInSeconds)
         this.setState({
             time: totalTimeInSeconds
         })
@@ -42,22 +42,28 @@ class RunLog extends Component {
     handleHoursInput = (e) => {
         this.setState({
             hours: e.target.value
+        }, () => {
+            this.convertTime()
         })
-        this.convertTime()
+        
     }
 
     handleMinutesInput = (e) => {
         this.setState({
             minutes: e.target.value
+        }, () => {
+            this.convertTime()
         })
-        this.convertTime()
+        
     }
 
     handleSecondsInput = (e) => {
         this.setState({
             seconds: e.target.value
+        }, () => {
+            this.convertTime()
         })
-        this.convertTime()
+        
     }
 
     handleNoteInput = (e) => {
@@ -68,45 +74,22 @@ class RunLog extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log('distance',this.state.distance)
-        console.log('time',this.state.time)
-        console.log('date',this.state.date)
         if(this.state.distance == 0 || this.state.time == 0 || this.state.date == ''){
             this.setState({
                 validateFieldsClass: 'shown'
             })
         }
         else {
-            this.postRun()
+            this.context.addRun(this.state.user_id, this.state.distance, this.state.date, this.state.time, this.state.note);
+            this.setState({
+                distance: 0,
+                date: '',
+                time: 0,
+                note: ''
+            })
         }
     }
 
-    postRun = () => {
-        const run = {
-            user_id: this.state.user_id,
-            distance: this.state.distance,
-            date: this.state.date,
-            time: this.state.time,
-            note: this.state.note
-        }
-        fetch(config.API_ENDPOINT + `api/runs`, {
-            method: 'POST',
-            body: JSON.stringify(run),
-            headers: {
-                'content-type': 'application/json'
-            }
-        })
-        .then(res => {
-            if(!res.ok){
-                throw new Error(res.status)
-            }
-            return res.json()
-        })
-        .then(data => {
-            this.context.setRuns(data)
-        })
-        .catch(error => this.setState({error}))
-    }
 
     render() { 
         return (

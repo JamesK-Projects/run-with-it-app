@@ -70,10 +70,38 @@ class App extends Component {
 		this.getRuns()
 	}
 
+	addRun = (user_id, distance, date, time, note) => {
+        const run = {
+            user_id: user_id,
+            distance: distance,
+            date: date,
+            time: time,
+            note: note
+        }
+        fetch(config.API_ENDPOINT + `api/runs`, {
+            method: 'POST',
+            body: JSON.stringify(run),
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+        .then(res => {
+            if(!res.ok){
+                throw new Error(res.status)
+            }
+            return res.json()
+        })
+        .then(data => {
+            this.setRuns(data)
+        })
+        .catch(error => this.setState({error}))
+    }
+
 	render() { 
 		const contextValue = {
 			users: this.state.users,
 			runs: this.state.runs,
+			addRun: this.addRun,
 			setRuns: this.setRuns,
 			getUsers: this.getUsers,
 			getRuns: this.getRuns

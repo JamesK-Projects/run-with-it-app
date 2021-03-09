@@ -9,7 +9,7 @@ class HomePage extends Component {
         return (
             <div className="home-page">
                 <Nav {...this.props}/>
-                <Goal />
+                <Goal {...this.props}/>
                 <RunLog {...this.props}/>
             </div>
         );
