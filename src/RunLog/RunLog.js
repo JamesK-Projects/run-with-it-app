@@ -20,11 +20,9 @@ class RunLog extends Component {
 
     convertTime = () => {
         const totalTimeInSeconds = (this.state.hours * 3600) + (this.state.minutes * 60) + (this.state.seconds * 1)
-        console.log(totalTimeInSeconds)
         this.setState({
             time: totalTimeInSeconds
         })
-        console.log(this.state.time)
     }
 
     handleDateInput = (e) => {

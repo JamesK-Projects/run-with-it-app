@@ -28,7 +28,6 @@ class DataRow extends Component {
     }
 
     render() { 
-        console.log(this.props.run.date)
         return (
             <div className="data-rows">
                 <div className="row">

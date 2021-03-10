@@ -26,7 +26,6 @@ class Goal extends Component {
     }
 
     displayForm = () => {
-        console.log('display form')
         this.setState({
             classNameGoalForm: 'show-form',
             classNameGoalStatement: 'hidden'
@@ -51,7 +50,6 @@ class Goal extends Component {
     }
 
     handleDistanceInput = (e) => {
-        console.log(e.target.value)
         this.setState({
             formDistance: e.target.value
         }, () => {})

@@ -20,7 +20,6 @@ class LoginForm extends Component {
             } 
         })
         if (correctCredentials == true){
-            console.log(this.props)
             this.props.history.push(`/home/${correctUser.id}`)
             this.setState({className: 'login-validation-hidden'})
         } else this.setState({className: 'login-validation-shown'})
