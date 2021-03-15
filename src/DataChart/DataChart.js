@@ -16,14 +16,14 @@ class DataChart extends Component {
     //     console.log(this.state.counter)
 
     //     if(this.state.counter % 2 === 0){
-    //         return 'grey'
+    //         return 'shaded'
     //     }
     // }
 
     render() { 
         return (
             <div className="data-chart">
-                <h2>Your Run Data</h2>
+                <h2 className="heading">Your Run Data</h2>
                 <div className="labels">
                     <div className="label"><h4>Date</h4></div>
                     <div className="label"><h4>Distance</h4></div>

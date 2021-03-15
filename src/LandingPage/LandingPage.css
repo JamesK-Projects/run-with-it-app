@@ -1,13 +1,62 @@
 .homepage-section, .progress-section{
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 40px;
 }
 
 .progress-section{
-    background-color: grey
+    background-color: rgb(222, 235, 241);
+}
+
+.progress-section>p, .progress-section>h2 {
+    color: rgb(72, 109, 151);
 }
 
 h2{
     text-align: center;
+}
+
+.create-account-now{
+    padding-top: 20px;
+}
+
+.screenshot{
+    width: 80%;
+}
+
+@media all and (min-width: 600px) {
+    .homepage-section-content, .progress-section-content{
+        margin-top: 20px;
+    }
+
+    .homepage-section{
+        display: flex;
+    }
+
+    .screenshot{
+        margin: 30px;
+        flex: 3;
+        width: 50%;
+    }
+
+    .progress{
+        display:flex;
+        flex-direction: row-reverse;
+    }
+
+    .text{
+        font-size: large;
+    }
+}
+
+@media all and (min-width: 800px) {
+    .text{
+        font-size: larger;
+    }
+
+    .homepage-section, .progress {
+        width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

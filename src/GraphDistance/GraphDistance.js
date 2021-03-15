@@ -24,7 +24,7 @@ class GraphDistance extends Component {
     render(){
         return (
             <div className="graph-distance">
-                <h2 className="graph-title">Graph of Distance</h2>
+                <h2 className="graph-title heading">Graph of Distance</h2>
                 <Line 
                     responsive= {true}
                     data={{
@@ -32,12 +32,12 @@ class GraphDistance extends Component {
                         datasets: [{
                             label: 'Distance (miles)',
                             data: this.getDistances(),
-                            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-                            borderColor: ['rgba(54, 162, 235, 1)']
+                            backgroundColor: ['rgb(52, 77, 158, 0.1)'],
+                            borderColor: ['rgb(52, 77, 158, 1)']
                         }]
                     }}
-                    height={700}
-                    width={1400}
+                    height={500}
+                    width={900}
 
                     options = {{
                         scales: {
@@ -51,10 +51,10 @@ class GraphDistance extends Component {
                         },
                         layout: {
                             padding: {
-                                left: 100,
-                                right: 100,
+                                left: 10,
+                                right: 20,
                                 top: 0,
-                                bottom: 20
+                                bottom: 0
                             },
 
 

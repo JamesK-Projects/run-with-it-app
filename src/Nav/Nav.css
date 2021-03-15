@@ -4,13 +4,29 @@ body {
 
 header{
     text-align: center;
-    background-color:rgb(207, 207, 207);
-    padding-top: 10px;
+    background-color:rgb(52, 77, 158);
+    /* padding-top: 10px; */
 }
 
 nav{
     padding-bottom: 15px;
     margin: 5px;
+    
+}
+
+.name-and-logo{
+    display: flex;
+    justify-content: center;
+}
+
+.app-name{
+    font-family: 'Merriweather Sans', sans-serif;
+    color: rgb(255, 255, 255);
+    text-shadow: rgb(0, 0, 0) 1px 0 10px;
+}
+.logo{
+    width: 50px;
+    margin-right: 10px;
 }
 
 .tabs{
@@ -21,16 +37,47 @@ nav{
 
 a{
     text-decoration: none;
-    color: black;
+    color: rgb(36, 41, 88);
+    background-color:rgb(255, 255, 255);
     border-style: solid;
-    border-width: 1px;
-    padding: 2px;
+    border-width: 0px;
+    padding: 4px 8px 4px 8px;
+    border-radius: 20px;
+    font-family: 'Libre Franklin', sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.527) 0px 5px 15px;
+    
+}
+
+span{
+    font-size: 12px;
 }
 
 a:hover{
-    background-color: rgb(122, 122, 122);
+    background-color: rgb(196, 228, 255);
 }
 
 .hide-nav{
     display: none;
+}
+
+
+@media all and (min-width: 600px) {
+    header{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .name-and-logo{
+        align-content: center;
+        padding-left: 10px;
+    }
+
+    .tabs{
+        padding-top: 25px;
+        padding-right: 10px;
+    }
+
+    span{
+        font-size: 14px;
+    }
 }

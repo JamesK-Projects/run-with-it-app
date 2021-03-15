@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import './Nav.css';
+import logo from '../images/runwithit_logo.svg';
 
 class Nav extends Component {
     state = {
@@ -27,13 +28,16 @@ class Nav extends Component {
     render() { 
         return (
             <header>
-                <div className="app-name">
-                    <h1>Run With It</h1>
+                <div className="name-and-logo">
+                    <img className="logo" src={logo}></img>
+                    <div className="app-name">
+                        <h1>Run With It</h1>
+                    </div>
                 </div>
                 <div className="tabs">
                     <nav className={this.state.navLoggedOut}>
                         <Link to="/login">
-                            <span className="login">Login In / Create Account</span>
+                            <span className="login">Log In / Create Account</span>
                         </Link>
                     </nav>
                     <nav className={this.state.navLoggedIn}>
@@ -43,7 +47,7 @@ class Nav extends Component {
                     </nav>
                     <nav className={this.state.navLoggedIn}>
                         <Link to={`/progress${this.state.path}`}>
-                            <span className="progress">Your Progress</span>
+                            <span className="your-progress">Your Progress</span>
                         </Link>
                     </nav>
                     <nav className={this.state.navLoggedIn}>

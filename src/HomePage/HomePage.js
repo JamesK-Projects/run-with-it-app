@@ -16,7 +16,7 @@ class HomePage extends Component {
                         <div className="home-page" key={user.id}>
                             <Nav {...this.props}/>
                             <Goal {...this.props} user={user}/>
-                            <RunLog {...this.props}/>
+                            <RunLog {...this.props} user={user}/>
                         </div>
                     );
                 }

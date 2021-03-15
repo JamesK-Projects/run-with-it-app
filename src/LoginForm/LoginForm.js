@@ -41,13 +41,15 @@ class LoginForm extends Component {
         return (
             <div className="login-form">
                 <form className="login-form" onSubmit={e => this.handleSubmit(e)}>
-                    <h2>Log into an existing account</h2>
-                    <label id="login-email">Email</label>
-                    <input type="text" id="login-email" onChange={e => this.handleEmail(e)}/><br/>
-                    <label id="login-password">Password</label>
-                    <input type="password" id="login-password" onChange={e => this.handlePassword(e)}/><br/>
-                    <button>Log In</button>
-                    <p className={this.state.className}>Email and/or Password are incorrect. Please try again.</p>
+                    <h2 className="heading">Log into an existing account</h2>
+                    <div className="form-content">
+                        <label id="login-email">Email</label>
+                        <input className="form-input" type="text" id="login-email" onChange={e => this.handleEmail(e)}/><br/>
+                        <label id="login-password">Password</label>
+                        <input className="form-input" type="password" id="login-password" onChange={e => this.handlePassword(e)}/><br/>
+                        <button>Log In</button>
+                        <p className={this.state.className}>Email and/or Password are incorrect. Please try again.</p>
+                    </div>
                 </form>
             </div>
         );

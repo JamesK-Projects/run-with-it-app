@@ -2,9 +2,18 @@
     text-align: center;
 }
 
+.login-form{
+    padding-top: 20px;
+}
+
 input{
     margin-bottom: 10px;
     margin-left: 5px;
+}
+
+label{
+    font-family: 'Cabin', sans-serif;
+    color:rgb(58, 58, 58);
 }
 
 .login-validation-hidden, .hidden{
@@ -17,4 +26,32 @@ input{
 
 .shown-success{
     color: green;
+}
+
+.form-content{
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 15px;
+    border-color: grey;
+    background-color: rgb(223, 229, 233);
+    box-shadow: rgba(0, 0, 0, 0.116) 0px 1px 15px;
+}
+
+.form-input{
+    border-radius: 3px;
+    border-width: 1px;
+    text-align: left;
+}
+
+
+@media all and (min-width: 600px) {
+    .form-content{
+        width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

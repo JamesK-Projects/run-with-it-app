@@ -15,7 +15,8 @@ class RunLog extends Component {
         minutes: '',
         seconds: '',
         validateFieldsClass: 'hidden',
-        error: ''
+        error: '',
+        classNameGoalAchieved: 'hidden'
     }
 
     convertTime = () => {
@@ -85,6 +86,7 @@ class RunLog extends Component {
                 time: this.state.time,
                 note: this.state.note
             }
+            this.checkGoal(run)
             fetch(config.API_ENDPOINT + 'api/runs', {
                 method: 'POST',
                 body: JSON.stringify(run),
@@ -116,25 +118,36 @@ class RunLog extends Component {
         }
     }
 
+    checkGoal = (loggedRun) => {
+        if(loggedRun.distance >= this.props.user.goal_distance && loggedRun.time/loggedRun.distance <= this.props.user.goal_pace){
+            this.setState({
+                classNameGoalAchieved: 'achieved'
+            })
+        }
+    }
+
     render() { 
         return (
             <div className="run-data">
-                <h2>Log your run</h2>
-                <form className="run-log" onSubmit={e => this.handleSubmit(e)}>
+                <h2 className={this.state.classNameGoalAchieved}>You have achieved your goal! Congratulations on your hard work!</h2>
+                <div className="runlog-form">
+                    <h2 className="heading">Log your run</h2>
+                    <form className="run-log" onSubmit={e => this.handleSubmit(e)}>
                     <label id="date">* Today's Date</label><br/>
                     <input type="date" id="date" className="date" value={this.state.date} onChange={e => this.handleDateInput(e)}/><br/>
                     <label id="distance">* How far did you run?</label><br/>
-                    <input type="text" id="distance" className="distance" placeholder="Distance (Miles)" value={this.state.distance} onChange={e => this.handleDistanceInput(e)}/><br/>
+                    <input type="text" id="distance" className="distance form-input" placeholder="Distance (Miles)" value={this.state.distance} onChange={e => this.handleDistanceInput(e)}/><br/>
                     <label id="time">* How long did you run for?</label><br/>
-                    <input type="text" id="hours" className="time" placeholder="H" value={this.state.hours} onChange={e => this.handleHoursInput(e)}/> :
-                    <input type="text" id="minutes" className="time" placeholder="M" value={this.state.minutes} onChange={e => this.handleMinutesInput(e)}/> :
-                    <input type="text" id="seconds" className="time" placeholder="S" value={this.state.seconds} onChange={e => this.handleSecondsInput(e)}/><br/>
+                    <input type="text" id="hours" className="time form-input" placeholder="H" value={this.state.hours} onChange={e => this.handleHoursInput(e)}/> :
+                    <input type="text" id="minutes" className="time form-input" placeholder="M" value={this.state.minutes} onChange={e => this.handleMinutesInput(e)}/> :
+                    <input type="text" id="seconds" className="time form-input" placeholder="S" value={this.state.seconds} onChange={e => this.handleSecondsInput(e)}/><br/>
                     <label id="notes">Anything to note?</label><br/>
-                    <input type="text" id="notes" className="notes" value={this.state.note} onChange={e => this.handleNoteInput(e)}/><br/>
+                    <textarea id="notes" className="notes form-input" value={this.state.note} onChange={e => this.handleNoteInput(e)} rows={3}/><br/>
                     <button type="submit">Submit</button>
                     <p className={this.state.validateFieldsClass}>Please fill out all required fields</p>
-                    <p>* (Required field)</p>
-                </form>
+                    <p className="text">* (Required field)</p>
+                    </form>
+                </div>
             </div>
         );
     }

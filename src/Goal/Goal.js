@@ -114,18 +114,18 @@ class Goal extends Component {
     render() { 
         return (
             <div className="goal">
-                <h2>My Goal:</h2>
+                <h2 className="goal-header heading">My Goal:</h2>
                 <form className={this.state.classNameGoalForm} onSubmit={e => this.handleSubmit(e)}>
                     I want to run 
-                    <input type="text" placeholder="Distance (miles)" onChange={e => this.handleDistanceInput(e)}/>
+                    <input type="text" className="distance" placeholder="Distance (miles)" onChange={e => this.handleDistanceInput(e)}/>
                     miles with an average pace of
-                    <input type="text" className="pace" placeholder="M" onChange={e => this.handleMinInput(e)}/> :
+                    <input type="text" className="pace" placeholder="M" onChange={e => this.handleMinInput(e)}/>:
                     <input type="text" className="pace" placeholder="S" onChange={e => this.handleSecInput(e)}/> 
                     per mile.
                     <button type="submit">Set Goal!</button>
                 </form>
                 <div className={this.state.classNameGoalStatement}>
-                    <h3>I want to run {this.state.distanceGoal} miles with an average pace of {this.state.paceGoalString} per mile!</h3>
+                    <h3 className="goal-statement">Run {this.state.distanceGoal} miles with an average pace of {this.state.paceGoalString} per mile!</h3>
                     <button onClick={() => this.changeGoal()}>Update Goal</button>
                 </div>
             </div>

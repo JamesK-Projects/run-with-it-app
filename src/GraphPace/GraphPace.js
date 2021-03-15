@@ -58,7 +58,7 @@ class GraphPace extends Component {
     render() { 
         return (
             <div className="graph-pace">
-                <h2 className="graph-title">Graph of Average Pace</h2>
+                <h2 className="graph-title heading">Graph of Average Pace</h2>
                 <Line 
                     responsive= {true}
                     data={{
@@ -67,12 +67,12 @@ class GraphPace extends Component {
                             label: 'Pace per mile',
                             data: this.calculatePace(),
                             dataStr: this.calculatePaceStr(),
-                            backgroundColor: ['rgba(40, 236, 33, 0.3)'],
-                            borderColor: ['rgba(40, 236, 33, 0.8)']
+                            backgroundColor: ['rgba(40, 236, 33, 0.1)'],
+                            borderColor: ['rgba(40, 236, 33, 1)']
                         }]
                     }}
-                    height={700}
-                    width={1400}
+                    height={500}
+                    width={900}
 
                     options = {{
                         scales: {
@@ -86,10 +86,10 @@ class GraphPace extends Component {
                         },
                         layout: {
                             padding: {
-                                left: 100,
-                                right: 100,
+                                left: 10,
+                                right: 20,
                                 top: 0,
-                                bottom: 20
+                                bottom: 0
                             },
                         },
                         tooltips: {

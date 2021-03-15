@@ -98,17 +98,19 @@ class CreateAccountForm extends Component {
         return (
             <div className="create-account">
                 <form className="create-account-form" onSubmit={e => this.validateInputs(e)}>
-                <h2>Create a new account</h2>
-                <label id="create-account-name">Name</label>
-                <input type="text" id="create-account-name" onChange={e => this.handleNameInput(e)}/><br/>
-                <label id="create-account-email">Email</label>
-                <input type="text" id="create-account-email" onChange={e => this.handleEmailInput(e)}/><br/>
-                <p className={this.state.classNameEmailTaken}>This email address is already taken, please use a different email</p>
-                <label id="create-account-password">Password</label>
-                <input type="password" id="create-account-password" onChange={e => this.handlePasswordInput(e)}/><br/>
-                <button>Create Account</button>
-                <p className={this.state.classNameFillAllFields}>Please fill all fields</p>
-                <p className={this.state.classNameSuccess}>Account created! Please log in</p>
+                <h2 className="heading">Create a new account</h2>
+                <div className="form-content">
+                    <label id="create-account-name">Name</label>
+                    <input className="form-input" type="text" id="create-account-name" onChange={e => this.handleNameInput(e)}/><br/>
+                    <label id="create-account-email">Email</label>
+                    <input className="form-input" type="text" id="create-account-email" onChange={e => this.handleEmailInput(e)}/><br/>
+                    <p className={this.state.classNameEmailTaken}>This email address is already taken, please use a different email</p>
+                    <label id="create-account-password">Password</label>
+                    <input className="form-input" type="password" id="create-account-password" onChange={e => this.handlePasswordInput(e)}/><br/>
+                    <button>Create Account</button>
+                    <p className={this.state.classNameFillAllFields}>Please fill out all fields</p>
+                    <p className={this.state.classNameSuccess}>Account created! Please log in</p>
+                </div>
             </form>
             </div>
         );

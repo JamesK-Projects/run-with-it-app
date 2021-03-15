@@ -7,8 +7,14 @@ h2{
 }
 
 .goal{
-    background-color: gray;
     padding-top: 20px;
+}
+
+.goal-statement{
+    background-color:rgb(222, 255, 103);
+    color: rgb(68, 68, 68);
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.678) 0px 2px 20px;
 }
 
 .run-data{
@@ -18,12 +24,16 @@ h2{
     text-align: center;
 }
 
-.notes{
-    height: 120px;
-    vertical-align: text-top;
+input{
+    margin-bottom: 20px;
 }
 
-input{
+textarea, input{
+    font-family: 'Cabin', sans-serif;
+    color: rgb(59, 59, 59);
+}
+
+textarea{
     margin-bottom: 20px;
 }
 
@@ -33,4 +43,35 @@ input{
 
 .pace{
     width: 20px;
+    margin-right: 5px;
 }
+
+.distance{
+    width: 100px;
+    margin-right: 5px;
+}
+
+.runlog-form{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 15px;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-color: grey;
+    background-color: rgb(223, 229, 233);
+    box-shadow: rgba(0, 0, 0, 0.116) 0px 1px 15px;
+}
+
+.achieved{
+    color:rgb(0, 190, 149);
+}
+
+
+@media all and (min-width: 600px) {
+    .runlog-form{
+        width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+

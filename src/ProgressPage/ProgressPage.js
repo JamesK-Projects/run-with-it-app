@@ -4,7 +4,6 @@ import GraphDistance from '../GraphDistance/GraphDistance';
 import GraphPace from '../GraphPace/GraphPace';
 import PRs from '../PRs/PRs';
 import './ProgressPage.css';
-import DummyData from '../dummyData';
 import runwithitContext from '../runwithitContext'
 
 class ProgressPage extends Component {
@@ -45,22 +44,6 @@ class ProgressPage extends Component {
         }
     }
 
-    // showPRs = () => {
-    //     console.log('ran')
-    //     let showPRs = false;
-    //     console.log(showPRs)
-    //     this.context.runs.map(run => {
-    //         if(run.user_id == this.props.match.params.userId){
-    //             showPRs = true;
-    //         }
-    //     })
-    //     console.log(showPRs)
-    //     if(showPRs = true){
-    //         return <PRs runData={this.context.runs} {...this.props}/>
-    //     }
-    //     else return;
-    // }
-
     highlightSelectorD = () => {
         if(this.state.selectDistance === true){
             return "selector true"
@@ -83,12 +66,13 @@ class ProgressPage extends Component {
         return (
             <div className="progress-page">
                 <Nav {...this.props}/>
+                <PRs runData={this.context.runs} {...this.props}/>
                 {this.showGraph()}
                 <div className="graph-select">
                     <span className={this.highlightSelectorD()} onClick={this.selectGraphD}>Distance</span>
                     <span className={this.highlightSelectorP()} onClick={this.selectGraphP}>Pace</span>
                 </div>
-                <PRs runData={this.context.runs} {...this.props}/>
+                
             </div>
         );
     }

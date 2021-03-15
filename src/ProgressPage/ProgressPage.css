@@ -9,9 +9,12 @@ canvas{
 
 .selector{
     border-style: solid;
+    border-radius: 3px;
     border-width: 1px;
-    padding: 1px;
+    padding: 3px;
     margin: 5px;
+    font-family: 'Libre Franklin', sans-serif;
+
 }
 
 .selector:hover{
@@ -19,12 +22,60 @@ canvas{
 }
 
 .true{
-    background-color: rgb(165, 165, 165);
+    background-color: rgb(196, 228, 255);
 }
 
 .graph-title{
     margin: 40px;
 }
 
+.prs{
+    padding-top: 20px;
+}
+
+.records{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(222, 255, 103);
+    box-shadow: rgba(0, 0, 0, 0.678) 0px 2px 20px;
+    color: rgb(68, 68, 68);
+}
+
+.personal-best{
+    font-family: 'Cabin', sans-serif;
+    color:rgb(58, 58, 58);
+}
+
+@media all and (min-width: 1000px) {
+    .chartjs-render-monitor{
+        width: 980px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+@media all and (min-width: 1100px) {
+    .chartjs-render-monitor{
+        width: 1080px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+@media all and (min-width: 1200px) {
+    .chartjs-render-monitor{
+        width: 1180px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+@media all and (min-width: 1300px) {
+    .chartjs-render-monitor{
+        width: 1280px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
 
 

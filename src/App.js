@@ -7,6 +7,7 @@ import ProgressPage from './ProgressPage/ProgressPage';
 import DataPage from './DataPage/DataPage';
 import config from './config';
 import runWithItContext from './runwithitContext';
+import './App.css';
 
 
 class App extends Component {
@@ -137,6 +138,9 @@ class App extends Component {
 						/>
 					</runWithItContext.Provider>
         		</div>
+				<div className="footer">
+					<p className="footer-content">Created by James Kernan</p>
+				</div>
       		</div>
     	);
   	}

@@ -67,8 +67,11 @@ class PRs extends Component {
     render() { 
         return (
             <div className={this.state.classNamePRs}>
-                <h2>Best Distance: {this.setDistancePR()} miles</h2>
-                <h2>Fastest Pace: {this.setPacePR()} per mile</h2>
+                <h2 className="heading">Personal Records</h2>
+                <div className="records">
+                    <h3 className="personal-best">Best Distance: {this.setDistancePR()} miles</h3>
+                    <h3 className="personal-best">Fastest Pace: {this.setPacePR()} per mile</h3>
+                </div>
             </div>
         );
     }

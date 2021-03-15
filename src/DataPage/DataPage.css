@@ -1,5 +1,7 @@
 .labels{
     border-style: solid;
+    border-width: 6px;
+    border-color:rgb(51, 87, 121);
     border-top: 0;
     border-right: 0;
     border-left: 0;
@@ -15,12 +17,30 @@
     display: flex;
     justify-content: space-evenly;
     text-align: center;
+    border-bottom: solid  rgba(128, 128, 128, 0.562);
+    border-width: 1px;
 }
 
 .item{
     width: 100%;
+    font-size: small;
 }
 
-.grey{
+.shaded{
     background-color: grey;
+}
+
+.data-chart{
+    padding-top: 20px;
+}
+
+h4{
+    font-size: small;
+}
+
+@media all and (min-width: 600px) {
+    .item{
+        font-size: medium;
+        padding: 0 10px 0 10px;
+    }
 }
