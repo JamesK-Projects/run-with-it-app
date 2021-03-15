@@ -1,72 +1,46 @@
-# Getting Started with Create React App
+# Run With It
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Link to live app: https://run-with-it-app.vercel.app/
 
-## Available Scripts
+## Summary of App
 
-In the project directory, you can run:
+Run With It is a run-tracking app that allows users to log their runs and see their progress in graph-form.
 
-### `npm start`
+After creating an account and logging in, the user will first be taken to the home page where they can set their goal distance and pace. They will have the option to go back and adjust this goal whenever they want.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Underneath the user's goal is the run log form, where the user inputs the date, distance, time, and any notes for each run they log.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+If the user logs a run that meets their goal, they will be presented with a congratulatory message.
 
-### `npm test`
+Screenshot of the home page:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![alt text](./src/images/home-page.png "Home Page Screenshot")
 
-### `npm run build`
+After the user logs their run, the run data will be displayed in two different graphs in the progress page. The user can toggle between graphs that show the distance and the pace of each run. The user can also hover over each data point in the graphs to see a tooltip with that run's data.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The progress page will also display the user's personal best distance and fastest pace at the top of the page.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Screenshot of the progress page:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![alt text](./src/images/progress-page.png "Progress Page Screenshot")
 
-### `npm run eject`
+In addition to the progress page, the data for each run that the user logs can be seen in the data page. Each run's data is displayed in a separate row containing the run's date, distance, time, pace, and notes. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Technology Used
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Frontend
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- HTML
+- CSS
+- Javascript
+- React
+- Hosted on Vercel
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Backend
 
-## Learn More
+- Node.js
+- PostgreSql
+- Hosted on Heroku
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# run-with-it-app
-# run-with-it-app
