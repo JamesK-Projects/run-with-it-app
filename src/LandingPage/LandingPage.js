@@ -22,7 +22,6 @@ class LandingPage extends Component {
                     <h2 className="slogan heading">See how far you've come</h2>
                     <div className="progress">
                         <div className="progress-section-content">
-                            
                             <p className="text">Run With It turns your run data into clear and simple graphs that reflect your progress.</p>
                             <p className="text">It also keeps track of the PRs you set and lets you know when you break them.</p>
                             <p className="text">All of your previous run data is saved and can be easily accessed</p>
@@ -32,6 +31,9 @@ class LandingPage extends Component {
                 </div>
                 <div className="create-account-now">
                     <h2 className="heading">Create an account now to get started!</h2>
+                    <p className="demo">To see how the app works, log in with these demo login credentials:</p>
+                    <p>Email: demo@test.com</p>
+                    <p>Password: demo123</p>
                 </div>
             </div>
         );

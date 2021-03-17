@@ -4,21 +4,6 @@ import runWithItContext from '../runwithitContext';
 
 class DataChart extends Component {
     static contextType = runWithItContext;
-    // state = {
-    //     counter: 0
-    // }
-
-    // alternateRow = () => {
-    //     this.setState({
-    //         counter: this.state.counter ++
-    //     })
-
-    //     console.log(this.state.counter)
-
-    //     if(this.state.counter % 2 === 0){
-    //         return 'shaded'
-    //     }
-    // }
 
     render() { 
         return (
@@ -34,9 +19,9 @@ class DataChart extends Component {
                 {this.context.runs.map(run => {
                     if(run.user_id == this.props.match.params.userId){
                         return (
-                            // <div className={this.alternateRow()}>
+                            <div className="data-row">
                                 <DataRow run={run} key={run.id}/>
-                            // </div>
+                            </div>
                         )
                     }
                 })}
