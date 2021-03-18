@@ -19,8 +19,8 @@ class DataChart extends Component {
                 {this.context.runs.map(run => {
                     if(run.user_id == this.props.match.params.userId){
                         return (
-                            <div className="data-row">
-                                <DataRow run={run} key={run.id}/>
+                            <div className="data-row" key={run.id} run={run}>
+                                <DataRow run={run}/>
                             </div>
                         )
                     }

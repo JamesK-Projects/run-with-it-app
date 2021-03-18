@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import config from '../config';
 
 class PRs extends Component {
     state = {
-        classNamePRs: 'hidden'
+        classNamePRs: 'hidden',
+        runData: this.props.runData
     }
     setDistancePR = () => {
         let distances = []
@@ -10,7 +12,6 @@ class PRs extends Component {
         this.props.runData.map(run => {
             if(run.user_id == this.props.match.params.userId){
                 distances.push(run.distance)
-                // this.setState({classNamePRs: 'prs'})
             }
         })
         for(let i = 0; i < distances.length; i++){
@@ -51,7 +52,7 @@ class PRs extends Component {
     }
 
     showPRs = () => {
-        this.props.runData.map(run => {
+        this.state.runData.map(run => {
             if(run.user_id == this.props.match.params.userId){
                 this.setState({
                     classNamePRs: 'prs'
@@ -61,7 +62,30 @@ class PRs extends Component {
     }
 
     componentDidMount(){
-        this.showPRs()
+        if(this.props.runData.length == 0){
+            const url = config.API_ENDPOINT;
+            const urlRuns = url + 'api/runs';
+            fetch(urlRuns, {
+                method: 'GET',
+            })
+            .then(res => {
+                if(!res.ok) {
+                    throw new Error(res.status)
+                }
+                return res.json()
+            })
+            .then(data => {
+                this.setState({
+                    runData: data
+                },
+                () => {this.showPRs()})
+            })
+            .catch(error => this.setState({error}))
+            }
+        else{
+            this.showPRs()
+        }
+        
     }
 
     render() { 
