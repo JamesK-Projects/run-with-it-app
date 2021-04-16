@@ -11,7 +11,6 @@ class LoginPage extends Component {
                 <Nav />
                 <CreateAccountForm {...this.props}/>
                 <LoginForm {...this.props}/>
-                
             </div>
         );
     }

@@ -56,8 +56,6 @@ class GraphDistance extends Component {
                                 top: 0,
                                 bottom: 0
                             },
-
-
                         }
                     }}
                 />

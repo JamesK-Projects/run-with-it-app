@@ -104,11 +104,11 @@ class CreateAccountForm extends Component {
                     <input className="form-input" type="text" id="create-account-name" onChange={e => this.handleNameInput(e)}/><br/>
                     <label id="create-account-email">Email</label>
                     <input className="form-input" type="text" id="create-account-email" onChange={e => this.handleEmailInput(e)}/><br/>
-                    <p className={this.state.classNameEmailTaken}>This email address is already taken, please use a different email</p>
                     <label id="create-account-password">Password</label>
                     <input className="form-input" type="password" id="create-account-password" onChange={e => this.handlePasswordInput(e)}/><br/>
                     <button>Create Account</button>
                     <p className={this.state.classNameFillAllFields}>Please fill out all fields</p>
+                    <p className={this.state.classNameEmailTaken}>This email address is already taken, please use a different email</p>
                     <p className={this.state.classNameSuccess}>Account created! Please log in</p>
                 </div>
             </form>

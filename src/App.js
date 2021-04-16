@@ -11,6 +11,8 @@ import './App.css';
 
 
 class App extends Component {
+
+	// creates the state
 	constructor(props){
         super(props);
         this.state = {
@@ -38,6 +40,7 @@ class App extends Component {
 		)
 	}
 
+	// gets all users from api/users endpoint, calls setUsers
 	getUsers = () => {
 		const url = config.API_ENDPOINT;
 		const urlUsers = url + 'api/users';
@@ -54,6 +57,7 @@ class App extends Component {
 		.catch(error => this.setState({error}))
 	}
 
+	// gets all runs from api/runs endpoint, calls setRuns
 	getRuns = () => {
 		const url = config.API_ENDPOINT;
 		const urlUsers = url + 'api/runs';
@@ -70,11 +74,13 @@ class App extends Component {
 		.catch(error => this.setState({error}))
 	}
 
+	// calls data fetching functions upon mounting
 	componentDidMount() {
 		this.getUsers()
 		this.getRuns()
 	}
-
+	
+	// posts a new run to api/runs endpoint, then calls setRuns with new run data
 	addRun = (user_id, distance, date, time, note) => {
         const run = {
             user_id: user_id,
@@ -103,6 +109,7 @@ class App extends Component {
     }
 
 	render() { 
+		// creates context values which can be accessed throughout app
 		const contextValue = {
 			users: this.state.users,
 			runs: this.state.runs,

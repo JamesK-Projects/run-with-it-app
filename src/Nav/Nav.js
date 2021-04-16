@@ -60,7 +60,6 @@ class Nav extends Component {
                             <span className="logout">Log Out</span>
                         </Link>
                     </nav>
-                    
                 </div>
             </header>
         );
