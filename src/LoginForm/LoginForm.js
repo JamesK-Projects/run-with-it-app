@@ -9,6 +9,8 @@ class LoginForm extends Component {
         className: 'login-validation-hidden'
     }
 
+    // map through users, check to see if entered credentials match a user in the db.
+    // if there's a match, get redirected to the home page for that user
     handleSubmit = (e) => {
         e.preventDefault()
         var correctCredentials = false;

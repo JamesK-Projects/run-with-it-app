@@ -12,10 +12,11 @@ class GraphPace extends Component {
         return runDates;
     }
 
+    // creates an array containing the user's pace for each run as strings
     calculatePaceStr = () => {
         let usersTime = []
         let usersDistance = []
-        let usersPace = []
+        let paceString = []
         let arrCounter = 0;
         this.props.runData.map(run => {
             if(run.user_id == this.props.match.params.userId){
@@ -26,19 +27,20 @@ class GraphPace extends Component {
                 var date = new Date(0);
                 date.setSeconds(usersTime[arrCounter]/usersDistance[arrCounter]);
                 var timeString = date.toISOString().substr(14, 5);
-                usersPace.push(timeString)
+                paceString.push(timeString)
                 arrCounter ++
             }
         })
 
-        return usersPace;
+        return paceString;
     }
 
+    // creates an array containing the user's raw numerical pace for each run in minutes/mile
     calculatePace = () => {
         let usersTime = []
         let usersDistance = []
         let arrCounter = 0;
-        let time = [];
+        let rawPace = [];
         
         this.props.runData.map(run => {
             if(run.user_id == this.props.match.params.userId){
@@ -46,12 +48,12 @@ class GraphPace extends Component {
                 usersDistance.push(run.distance)
             }
             while(arrCounter < usersTime.length){
-                time.push((usersTime[arrCounter]/60)/usersDistance[arrCounter])
+                rawPace.push((usersTime[arrCounter]/60)/usersDistance[arrCounter])
                 arrCounter ++
             }
         })
         
-        return time;
+        return rawPace;
         
     }
     

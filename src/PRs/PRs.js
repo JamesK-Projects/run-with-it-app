@@ -6,6 +6,9 @@ class PRs extends Component {
         classNamePRs: 'hidden',
         runData: this.props.runData
     }
+
+    // maps through all runs and creates array containing the distances for the specified user's runs
+    // finds the greatest distance that the user ran
     setDistancePR = () => {
         let distances = []
         let bestD = 0;
@@ -22,6 +25,8 @@ class PRs extends Component {
         return bestD;
     }
 
+    // maps through all runs and creates arrays for distances and times for the specified user's runs
+    // calculates the pace for each run and finds the fastest pace
     setPacePR = () => {
         let distance = []
         let time = []
@@ -51,6 +56,7 @@ class PRs extends Component {
         return bestPaceStr;
     }
 
+    // only shows PRs once a run has been logged by the user
     showPRs = () => {
         this.state.runData.map(run => {
             if(run.user_id == this.props.match.params.userId){
@@ -62,6 +68,8 @@ class PRs extends Component {
     }
 
     componentDidMount(){
+
+        // checks to see if runData props are passed down from parent. If not, sends a GET request to get all run data, then calls showPRs()
         if(this.props.runData.length == 0){
             const url = config.API_ENDPOINT;
             const urlRuns = url + 'api/runs';
@@ -85,7 +93,6 @@ class PRs extends Component {
         else{
             this.showPRs()
         }
-        
     }
 
     render() { 

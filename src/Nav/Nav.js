@@ -10,6 +10,7 @@ class Nav extends Component {
         path: ''
     }
 
+    // changes the class of nav tabs depending on whether or not a user is logged in
     handleNav = () => {
         if(this.props.match){
             this.setState({

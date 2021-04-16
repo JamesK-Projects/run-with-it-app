@@ -31,6 +31,7 @@ class ProgressPage extends Component {
         })
     }
 
+    // renders the component for the graph that is selected
     showGraph = () => {
         if(this.state.selectDistance === true){
             return (

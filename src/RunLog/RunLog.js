@@ -19,6 +19,7 @@ class RunLog extends Component {
         classNameGoalAchieved: 'hidden'
     }
 
+    // converts all time values to seconds to allow for easy computations
     convertTime = () => {
         const totalTimeInSeconds = (this.state.hours * 3600) + (this.state.minutes * 60) + (this.state.seconds * 1)
         this.setState({
@@ -73,11 +74,15 @@ class RunLog extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
+
+        // checks to make sure all required fields are filled. If not, show the message to fill all fields
         if(this.state.distance == 0 || this.state.time == 0 || this.state.date == ''){
             this.setState({
                 validateFieldsClass: 'shown'
             })
         }
+
+        // if form is filled correctly, sends a POST request to the runs endpoint to add the run data to the runs table
         else {
             const run = {
                 user_id: this.state.user_id,
@@ -86,6 +91,7 @@ class RunLog extends Component {
                 time: this.state.time,
                 note: this.state.note
             }
+
             this.checkGoal(run)
             fetch(config.API_ENDPOINT + 'api/runs', {
                 method: 'POST',
@@ -118,6 +124,7 @@ class RunLog extends Component {
         }
     }
 
+    // checks to see if the logged run meets the user's goals for pace and distance. If so, show a congratulatory message
     checkGoal = (loggedRun) => {
         if(loggedRun.distance >= this.props.user.goal_distance && loggedRun.time/loggedRun.distance <= this.props.user.goal_pace){
             this.setState({

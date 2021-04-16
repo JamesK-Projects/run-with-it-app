@@ -33,6 +33,7 @@ class CreateAccountForm extends Component {
         })
     }
 
+    // checks to see if all fields are filled out
     validateInputs = (e) => {
         e.preventDefault()
         if(this.state.name == '' || this.state.email == '' || this.state.password == ''){
@@ -43,6 +44,7 @@ class CreateAccountForm extends Component {
         }
     }
 
+    // checks to see if email is unique and not already registered
     confirmUniqueEmail = (e) => {
         e.preventDefault()
         var uniqueEmail = true;
@@ -59,6 +61,7 @@ class CreateAccountForm extends Component {
         }
     }
 
+    // fetch request to POST the new user data to the users table
     handleCreateAccount = (e) => {
         e.preventDefault()
         fetch(config.API_ENDPOINT + 'api/users', {

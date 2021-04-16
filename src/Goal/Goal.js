@@ -17,6 +17,7 @@ class Goal extends Component {
         error: ''
     }
 
+    // converts the pace from number of seconds to a formatted string.
     paceToStr = () => {
         var paceStr = new Date(0);
         paceStr.setSeconds(this.state.paceGoalSeconds);
@@ -25,6 +26,7 @@ class Goal extends Component {
         })
     }
 
+    // changes the class to show or hide the goal form and goal statement
     displayForm = () => {
         this.setState({
             classNameGoalForm: 'show-form',
@@ -32,6 +34,8 @@ class Goal extends Component {
         })
     }
 
+    // ensures that if a user set up their goal, it will be displayed on the page
+    // if the user hasn't created a goal, the goal form will be displayed
     displayGoal = () => {
         if(this.state.distanceGoal && this.state.paceGoalSeconds){
             this.setState({
@@ -67,6 +71,7 @@ class Goal extends Component {
         })
     }
 
+    // sends a PATCH request to update the specified user's goal distance and goal pace in the users table
     updateGoals = () => {
         const newGoals = { goal_distance: this.state.distanceGoal, goal_pace: this.state.paceGoalSeconds }
         fetch(config.API_ENDPOINT + `api/users/${this.state.user.id}`, {
